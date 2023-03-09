@@ -9,3 +9,5 @@ aux_links:
   Guided Notebook: https://example.com
 
 search_enabled: false
+
+remote-theme: just-the-docs/just-the-docs
