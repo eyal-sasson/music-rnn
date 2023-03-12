@@ -3,30 +3,48 @@ from uvicorn import run
 import os
 import tensorflow as tf
 from tensorflow import keras
-import random
-import json
+from random import randint
 import numpy as np
 
 app = FastAPI()
+
+models_dir = "../models"
+datasets = [f.name for f in os.scandir(models_dir) if f.is_dir()]
+print(f"Datasets: {datasets}")
+
+def load_models():
+    models = {}
+    for dataset in datasets:
+        models[dataset] = keras.models.load_model(f"{models_dir}/{dataset}/model.h5")
+    return models
+
+def load_maps():
+    maps = {}
+    for dataset in datasets:
+        idx2char = np.load(f"{models_dir}/{dataset}/idx2char.npy")
+        char2idx = {v: k for k,v in enumerate(idx2char)}
+        maps[dataset] = (char2idx, idx2char)
+    return maps
+
+print("Loading models and maps...")
+models = load_models()
+print("Models loaded")
+maps = load_maps()
+print("Maps loaded")
 
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
 
 @app.get("/generate/{dataset}")
-async def generate(dataset: str):
-    model = keras.models.load_model(dataset + ".h5")
-    char2idx, idx2char = load_maps(dataset)
-    seed = random.randint(0, 100)
-    return generate_text(model, char2idx, idx2char, f"X:{seed}")
+async def generate(dataset: str, string: str = f"X:{randint(1, 100)}", length: int = 10):
+    if dataset not in datasets:
+        return {"message": "Invalid dataset"}
+    model = models[dataset]
+    char2idx, idx2char = maps[dataset]
+    return {"message": generate_text(model, char2idx, idx2char, string, length)}
 
-def load_maps(dataset):
-    with open(dataset + "_char2idx.json", "r") as f:
-        char2idx = json.load(f)
-    idx2char = np.array(sorted(set(char2idx.keys())))
-    return char2idx, idx2char
-
-def generate_text(model, char2idx, idx2char, start_string, generation_length=1000):
+def generate_text(model, char2idx, idx2char, start_string, generation_length):
   text = start_string
 
   for i in range(generation_length):
