@@ -37,9 +37,10 @@ async def root():
     return {"message": "Hello World"}
 
 @app.get("/generate/{dataset}")
-async def generate(dataset: str, string: str = f"X:{randint(1, 100)}", length: int = 10):
+async def generate(dataset: str, string: str = None, length: int = 10):
     if dataset not in datasets:
         return {"message": "Invalid dataset"}
+    string = string or f"X: {randint(1, 100)}"
     model = models[dataset]
     char2idx, idx2char = maps[dataset]
     return {"message": generate_text(model, char2idx, idx2char, string, length)}
