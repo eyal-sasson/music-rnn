@@ -12,25 +12,20 @@ models_dir = "../models"
 datasets = [f.name for f in os.scandir(models_dir) if f.is_dir()]
 print(f"Datasets: {datasets}")
 
-def load_models():
+def load_models_and_maps():
     models = {}
-    for dataset in datasets:
-        models[dataset] = keras.models.load_model(f"{models_dir}/{dataset}/model.h5")
-    return models
-
-def load_maps():
     maps = {}
     for dataset in datasets:
+        print(f"Loading {dataset}...")
+        models[dataset] = keras.models.load_model(f"{models_dir}/{dataset}/model.h5")
         idx2char = np.load(f"{models_dir}/{dataset}/idx2char.npy")
         char2idx = {v: k for k,v in enumerate(idx2char)}
         maps[dataset] = (char2idx, idx2char)
-    return maps
+    return models, maps
 
 print("Loading models and maps...")
-models = load_models()
-print("Models loaded")
-maps = load_maps()
-print("Maps loaded")
+models, maps = load_models_and_maps()
+print("Done loading models and maps.")
 
 @app.get("/")
 async def root():
