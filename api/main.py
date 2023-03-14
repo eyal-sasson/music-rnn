@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from uvicorn import run
 import os
 import tensorflow as tf
@@ -7,6 +8,16 @@ from random import randint
 import numpy as np
 
 app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 models_dir = "../models"
 datasets = [f.name for f in os.scandir(models_dir) if f.is_dir()]
