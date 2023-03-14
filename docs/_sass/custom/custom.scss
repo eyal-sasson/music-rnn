@@ -1,0 +1,34 @@
+pre {
+    display: inline;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#caret {
+    background-color: #000;
+    width: 8px;
+    height: 1.2em;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+    margin-top: -0.2em;
+}
+
+#caret.animate {
+    animation: blink-caret 0.7s step-end infinite;
+}
+
+@keyframes blink-caret {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+

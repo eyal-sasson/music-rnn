@@ -5,13 +5,13 @@ layout: default
 
 Choose a dataset:
 
-[FolkWiki](javascript:getMusic("folkwiki")){: .btn .dataset}
+[The Nottingham Music Database](javascript:getMusic("abcsourceforge")){: .btn}
+[FolkWiki](javascript:getMusic("folkwiki")){: .btn}
+[French Trad](javascript:getMusic("tradfrance")){: .btn}
+[The Old Music Project](javascript:getMusic("oldmusic")){: .btn}
+[Serpent Publications](javascript:getMusic("serpent")){: .btn}
 
-[French Trad](javascript:getMusic("tradfrench")){: .btn .dataset}
-
-[The Old Music Project](javascript:getMusic("oldmusic")){: .btn .dataset}
-
-<div id="music"></div>
+<div id="music"><pre></pre><span id="caret" class="hidden animate"></span></div>
 
 <script src="{{ '/assets/js/get_music.js' | relative_url }}"></script>
 
