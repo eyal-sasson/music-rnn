@@ -1,28 +1,42 @@
+const abcjs = window.ABCJS;
+
+const LOADING = "Loading...";
+
 let running = false,
     typing = false;
-const LOADING = "Loading...";
+
 async function getMusic(dataset) {
     if (running)
         return;
     running = true;
-    const url = "http://35.237.174.14:8000/generate"
+    const url = "http://localhost:8000/generate"
     console.log(`fetching music for ${dataset}...`);
     const div = document.getElementById("music");
     const pre = div.querySelector("pre");
     pre.innerHTML = "Loading...";
+    document.getElementById("convert").classList.add("hidden");
     div.querySelector("#caret").classList.remove("hidden");
+    const sheet = document.getElementById("sheet");
+    sheet.innerHTML = "";
+    sheet.style = "";
+    div.querySelector("#audio").innerHTML = "";
     let text = "";
     let toWrite = [];
     try {
-        for (let i = 0; i < 20; i++) {
-            const music = await fetchMusic(url, dataset, text, 20);
-            if (music.includes("\n\n"))
-                break;
+        for (let i = 0; i < 10; i++) {
+            let music = await fetchMusic(url, dataset, text, 20);
+            let stop = false;
+            if (music.includes("\n\n")) {
+                music = music.split("\n\n")[0];
+                stop = true;
+            }
             toWrite.push(...music.replace(text, "").split(""));
             console.log(toWrite.join(""));
             text = music;
             if (!typing)
                 typeWriter(toWrite, pre);
+            if (stop)
+                break;
         }
     } catch (error) {
         console.error(error);
@@ -66,7 +80,29 @@ async function typeWriter(toWrite, e) {
     typing = false;
     if (running)
         caret.classList.add("animate");
-    if (!running)
-        document.querySelector("#caret").classList.add("hidden");
+    else {
+        document.getElementById("caret").classList.add("hidden");
+        document.getElementById("convert").classList.remove("hidden");
+    }
+}
+
+async function convert() {
+    const text = document.getElementById("music").querySelector("pre").innerHTML;
+    const visualObj = abcjs.renderAbc("sheet", text);
+    const controlOptions = {
+        displayPlay: true,
+        displayProgress: true,
+        displayClock: true
+    };
+    const synthControl = new abcjs.synth.SynthController();
+    synthControl.load("#audio", null, controlOptions);
+    synthControl.disable(true);
+    const midiBuffer = new abcjs.synth.CreateSynth();
+    await midiBuffer.init({
+        visualObj: visualObj[0],
+    });
+    await synthControl.setTune(visualObj[0], true);
+    document.querySelector(".abcjs-inline-audio").classList.remove("disabled");
+    document.getElementById("convert").classList.add("hidden");
 }
 
