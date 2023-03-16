@@ -9,7 +9,7 @@ async function getMusic(dataset) {
     if (running)
         return;
     running = true;
-    const url = "http://localhost:8000/generate"
+    const url = "https://gen.sasson.ml/generate"
     console.log(`fetching music for ${dataset}...`);
     const div = document.getElementById("music");
     const pre = div.querySelector("pre");
