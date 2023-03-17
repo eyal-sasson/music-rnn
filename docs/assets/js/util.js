@@ -2,14 +2,25 @@ const abcjs = window.ABCJS;
 
 const LOADING = "Loading...";
 
+const SPACED = {
+    "abcsourceforge": true,
+    "folkwiki": false,
+    "tradfrance": false,
+    "oldmusic": false,
+    "serpent": false,
+}
+
 let running = false,
     typing = false;
 
 async function getMusic(dataset) {
     if (running)
         return;
+    const seed = getSeed();
+    if (!seed)
+        return;
     running = true;
-    const url = "https://gen.sasson.ml/generate";
+    const url = "https://gen.sasson.ml";
     console.log(`fetching music for ${dataset}...`);
     const pre = document.getElementById("notes"),
         caret = document.getElementById("caret")
@@ -20,8 +31,8 @@ async function getMusic(dataset) {
     sheet.innerHTML = "";
     sheet.style = "";
     document.getElementById("audio").innerHTML = "";
-    let text = "";
-    let toWrite = [];
+    let text = `X:${SPACED[dataset] ? ' ' : ''}${seed}`
+    let toWrite = text.split("");
     try {
         for (let i = 0; i < 10; i++) {
             let music = await fetchMusic(url, dataset, text, 20);
@@ -104,5 +115,19 @@ async function convert() {
     await synthControl.setTune(visualObj[0], true);
     document.querySelector(".abcjs-inline-audio").classList.remove("disabled");
     document.getElementById("convert").classList.add("hidden");
+}
+
+function getSeed() {
+    const e = document.getElementById("seed");
+    if (e.value === "") {
+        return Math.floor(Math.random() * 1000);
+    }
+    if (e.checkValidity()) {
+        return e.value;
+    } else {
+        e.setCustomValidity("Please enter a number between 0 and 999");
+        e.reportValidity();
+        return null;
+    }
 }
 

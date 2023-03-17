@@ -10,4 +10,7 @@ aux_links:
 
 search_enabled: false
 
+permalink:
+  /:title
+
 remote-theme: just-the-docs/just-the-docs
