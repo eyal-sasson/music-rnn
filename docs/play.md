@@ -12,7 +12,7 @@ Choose a dataset:
 [Serpent Publications](javascript:getMusic("serpent")){: .btn}
 
 <div id="music">
-<pre></pre>
+<pre id="notes"></pre>
 <span id="caret" class="hidden animate"></span>
 <div id="sheet"></div>
 <div id="audio"></div>

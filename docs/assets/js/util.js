@@ -9,17 +9,17 @@ async function getMusic(dataset) {
     if (running)
         return;
     running = true;
-    const url = "https://gen.sasson.ml/generate"
+    const url = "https://gen.sasson.ml/generate";
     console.log(`fetching music for ${dataset}...`);
-    const div = document.getElementById("music");
-    const pre = div.querySelector("pre");
+    const pre = document.getElementById("notes"),
+        caret = document.getElementById("caret")
+        sheet = document.getElementById("sheet");
     pre.innerHTML = "Loading...";
     document.getElementById("convert").classList.add("hidden");
-    div.querySelector("#caret").classList.remove("hidden");
-    const sheet = document.getElementById("sheet");
+    caret.classList.remove("hidden");
     sheet.innerHTML = "";
     sheet.style = "";
-    div.querySelector("#audio").innerHTML = "";
+    document.getElementById("audio").innerHTML = "";
     let text = "";
     let toWrite = [];
     try {
@@ -42,7 +42,7 @@ async function getMusic(dataset) {
         console.error(error);
         typing = false;
         pre.innerHTML = "Something went wrong. Please try again later."
-        document.querySelector("#caret").classList.add("hidden");
+        caret.classList.add("hidden");
     }
     running = false;
 }
@@ -66,7 +66,7 @@ async function fetchMusic(url, dataset, start=null, length=10) {
 
 async function typeWriter(toWrite, e) {
     typing = true;
-    const caret = document.querySelector("#caret");
+    const caret = document.getElementById("caret");
     caret.classList.remove("animate");
     while (typing) {
         const char = toWrite.shift();
@@ -78,16 +78,16 @@ async function typeWriter(toWrite, e) {
         await new Promise(resolve => setTimeout(resolve, 50));
     }
     typing = false;
-    if (running)
+    if (running) {
         caret.classList.add("animate");
-    else {
-        document.getElementById("caret").classList.add("hidden");
+    } else {
+        caret.classList.add("hidden");
         document.getElementById("convert").classList.remove("hidden");
     }
 }
 
 async function convert() {
-    const text = document.getElementById("music").querySelector("pre").innerHTML;
+    const text = document.getElementById("notes").innerHTML;
     const visualObj = abcjs.renderAbc("sheet", text);
     const controlOptions = {
         displayPlay: true,
