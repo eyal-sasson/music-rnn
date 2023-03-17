@@ -19,7 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-models_dir = "../models"
+models_dir = "models"
 datasets = [f.name for f in os.scandir(models_dir) if f.is_dir()]
 print(f"Datasets: {datasets}")
 
@@ -42,7 +42,7 @@ print("Done loading models and maps.")
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/generate/{dataset}")
+@app.get("/{dataset}")
 async def generate(dataset: str, string: str = None, length: int = 10):
     if dataset not in datasets:
         return {"message": "Invalid dataset"}
