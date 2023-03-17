@@ -19,6 +19,8 @@ Choose a dataset:
 
 [Serpent Publications](javascript:getMusic("serpent")){: .btn} - Doesn't like large seeds; try manually setting one or two digits.
 
+[Le Grand Session de Manchester](javascript:getMusic("lesession")){: .btn}
+
 <div id="music">
 <pre id="notes"></pre>
 <span id="caret" class="hidden animate"></span>
