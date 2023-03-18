@@ -12,6 +12,8 @@ const SPACED = {
     "isra": true,
 }
 
+const NEW_SONG = "\nX:";
+
 let running = false,
     typing = false;
 
@@ -36,14 +38,15 @@ async function getMusic(dataset) {
     let text = `X:${SPACED[dataset] ? ' ' : ''}${seed}`
     let toWrite = text.split("");
     try {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 50; i++) {
             let music = await fetchMusic(url, dataset, text, 20);
             let stop = false;
-            if (music.includes("\n\n")) {
-                music = music.split("\n\n")[0];
+            music = music.replace(text, "");
+            if (music.includes(NEW_SONG)) {
+                music = music.split(NEW_SONG)[0];
                 stop = true;
             }
-            toWrite.push(...music.replace(text, "").split(""));
+            toWrite.push(...music.split(""));
             console.log(toWrite.join(""));
             text = music;
             if (!typing)
