@@ -1,12 +1,13 @@
 ---
 title: Home
 layout: home
+nav_order: 1
 ---
 
 **MusicRNN** is a [recurrent neural network][RNN] that generates music notes in the [ABC notation] format.
-Using a simple RNN [model](model) written in Python using [Keras], the network is able to generate formatted text which can later be converted to actual audio.
+Using a simple RNN [model](model) written in Python using [Keras], and trained on [scraped data](data), the network is able to generate formatted text which can later be converted to actual audio.
 
-If you want to experiment with the trained model on different datasets, look in [Play](play).
+If you want to experiment with the trained model on different datasets, check out [Play](play).
 
 
 [RNN]: https://en.wikipedia.org/wiki/Recurrent_neural_network

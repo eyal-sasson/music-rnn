@@ -1,25 +1,36 @@
 ---
 title: Play
 layout: default
+nav_order: 2
 ---
 
 Enter seed (leave blank for random):
 <input type="text" class="input" id="seed" placeholder="###"
     pattern="\d{1,3}" oninput="setCustomValidity('')">
 
-Choose a dataset:
+---
 
-[The Nottingham Music Database](javascript:getMusic("abcsourceforge")){: .btn .btn-blue} - Recommended, gives best results.
+### Choose a dataset:
 
-[FolkWiki](javascript:getMusic("folkwiki")){: .btn}
+- [<i class="fa-solid fa-star"></i> The Nottingham Music Database](javascript:getMusic("abcsourceforge")){: .btn .btn-blue} \
+    American and British folk tunes. Recommended, gives best results.
 
-[French Trad](javascript:getMusic("tradfrance")){: .btn}
+- [FolkWiki](javascript:getMusic("folkwiki")){: .btn} \
+    Swedish / Nordic folk music.
 
-[The Old Music Project](javascript:getMusic("oldmusic")){: .btn}
+- [French Trad](javascript:getMusic("tradfrance")){: .btn} \
+    Traditional French music.
 
-[Serpent Publications](javascript:getMusic("serpent")){: .btn} - Doesn't like large seeds; try manually setting one or two digits.
+- [The Old Music Project](javascript:getMusic("oldmusic")){: .btn} \
+    Irish music.
 
-[Le Grand Session de Manchester](javascript:getMusic("lesession")){: .btn}
+- [Serpent Publications](javascript:getMusic("serpent")){: .btn} \
+    Renaissance-like music. Doesn't work well with large seeds; try manually setting one or two digits.
+
+- [Le Grand Session de Manchester](javascript:getMusic("lesession")){: .btn} \
+    Mainly traditional Irish and French tunes.
+
+---
 
 <div id="music">
 <pre id="notes"></pre>

@@ -37,15 +37,11 @@
     width: 5ch;
     border: none;
     color: #000;
+    background-color: transparent;
     font-weight: 300;
 }
 
 .input:focus {
     outline: none;
-}
-
-.btn {
-    display: inline;
-    padding: 0.5em 1em;
 }
 

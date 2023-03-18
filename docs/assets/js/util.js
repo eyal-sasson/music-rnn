@@ -132,3 +132,14 @@ function getSeed() {
     }
 }
 
+const toggleDarkMode = document.getElementById("toggle-dark-mode");
+jtd.addEvent(toggleDarkMode, 'click', () => {
+    if (jtd.getTheme() === 'dark') {
+        jtd.setTheme('light');
+        toggleDarkMode.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    } else {
+        jtd.setTheme('dark');
+        toggleDarkMode.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+});
+

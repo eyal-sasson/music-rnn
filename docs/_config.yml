@@ -6,7 +6,6 @@ url: https://just-the-docs.github.io
 
 aux_links:
   GitHub Repository: https://github.com/eyal-sasson/music-rnn
-  Guided Notebook: https://colab.research.google.com/github/eyal-sasson/music-rnn/blob/main/MusicRNN.ipynb
 
 search_enabled: false
 
@@ -14,3 +13,6 @@ permalink:
   /:title
 
 remote-theme: just-the-docs/just-the-docs
+
+color_scheme: light
+
