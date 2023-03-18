@@ -48,7 +48,7 @@ async function getMusic(dataset) {
             }
             toWrite.push(...music.split(""));
             console.log(toWrite.join(""));
-            text = music;
+            text += music;
             if (!typing)
                 typeWriter(toWrite, pre);
             if (stop)
