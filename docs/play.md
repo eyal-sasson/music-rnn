@@ -30,6 +30,9 @@ Enter seed (leave blank for random):
 - [Le Grand Session de Manchester](javascript:getMusic("lesession")){: .btn} \
     Mainly traditional Irish and French tunes.
 
+- [Israeli dances](javascript:getMusic("isra")){: .btn} \
+    Israeli folk and dance music.
+
 ---
 
 <div id="music">

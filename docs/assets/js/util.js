@@ -9,6 +9,7 @@ const SPACED = {
     "oldmusic": false,
     "serpent": false,
     "lesession": true,
+    "isra": true,
 }
 
 let running = false,
