@@ -31,6 +31,7 @@ async function getMusic(dataset) {
         sheet = document.getElementById("sheet");
     pre.innerHTML = "Loading...";
     document.getElementById("convert").classList.add("hidden");
+    document.getElementById("download").classList.add("hidden");
     caret.classList.remove("hidden");
     sheet.innerHTML = "";
     sheet.style = "";
@@ -85,9 +86,9 @@ async function typeWriter(toWrite, e) {
     const caret = document.getElementById("caret");
     caret.classList.remove("animate");
     while (typing) {
-        const char = toWrite.shift();
-        if (!char)
+        if (toWrite.length === 0)
             break;
+        const char = toWrite.shift();
         if (e.innerHTML === LOADING)
             e.innerHTML = "";
         e.innerHTML += char;
@@ -103,22 +104,36 @@ async function typeWriter(toWrite, e) {
 }
 
 async function convert() {
-    const text = document.getElementById("notes").innerHTML;
-    const visualObj = abcjs.renderAbc("sheet", text);
-    const controlOptions = {
-        displayPlay: true,
-        displayProgress: true,
-        displayClock: true
-    };
-    const synthControl = new abcjs.synth.SynthController();
-    synthControl.load("#audio", null, controlOptions);
-    synthControl.disable(true);
-    const midiBuffer = new abcjs.synth.CreateSynth();
-    await midiBuffer.init({
-        visualObj: visualObj[0],
-    });
-    await synthControl.setTune(visualObj[0], true);
-    document.querySelector(".abcjs-inline-audio").classList.remove("disabled");
+    try {
+        const text = document.getElementById("notes").innerHTML;
+        const visualObj = abcjs.renderAbc("sheet", text, {
+            responsive: "resize",
+        });
+        const controlOptions = {
+            displayPlay: true,
+            displayProgress: true,
+            displayClock: true
+        };
+        const synthControl = new abcjs.synth.SynthController();
+        synthControl.load("#audio", null, controlOptions);
+        synthControl.disable(true);
+        const midiBuffer = new abcjs.synth.CreateSynth();
+        await midiBuffer.init({
+            visualObj: visualObj[0],
+        });
+        await synthControl.setTune(visualObj[0], true);
+        const download = document.getElementById("download");
+        download.classList.remove("hidden");
+        const downloadClone = download.cloneNode(true);
+        download.replaceWith(downloadClone); // remove event listeners
+        downloadClone.addEventListener("click", () => {
+            synthControl.download("musicrnn_generated.wav");
+        });
+        document.querySelector(".abcjs-inline-audio").classList.remove("disabled");
+    } catch (error) {
+        console.error(error);
+        document.getElementById("sheet").innerHTML = "Something went wrong. Please try regenerating the music.";
+    }
     document.getElementById("convert").classList.add("hidden");
 }
 

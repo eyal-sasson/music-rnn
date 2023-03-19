@@ -4,7 +4,7 @@
 }
 
 .hidden {
-    visibility: hidden;
+    display: none;
 }
 
 #caret {
@@ -19,6 +19,10 @@
 
 #caret.animate {
     animation: blink-caret 0.7s step-end infinite;
+}
+
+#caret.hidden {
+    visibility: hidden;
 }
 
 @keyframes blink-caret {
