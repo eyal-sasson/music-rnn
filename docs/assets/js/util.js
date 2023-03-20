@@ -4,12 +4,12 @@ const LOADING = "Loading...";
 
 const SPACED = {
     "abcsourceforge": true,
-    "folkwiki": false,
-    "tradfrance": false,
-    "oldmusic": false,
-    "serpent": false,
-    "lesession": true,
     "isra": true,
+    "folkwiki": false,
+    "oldmusic": false,
+    "lesession": true,
+    "tradfrance": false,
+    "serpent": false,
 }
 
 const NEW_SONG = "\nX:";

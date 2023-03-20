@@ -4,11 +4,16 @@ layout: default
 nav_order: 3
 ---
 
+# Data
+
+The model was trained on multiple datasets. All datasets, except [Israeli Dances](#israeli-dances), were scraped from the [ABC Notation website][ABC].
+The notebook showing the scraping process can be found [here](https://github.com/eyal-sasson/music-rnn/blob/main/Data_Scraping.ipynb).
+
 ## The Nottingham Music Database
 
 [Source](https://abc.sourceforge.net/NMD/)
 
-## Israeli dances
+## Israeli Dances
 
 [Source](https://ifdo.ca/~seymour/runabc/top.html)
 
@@ -31,4 +36,7 @@ nav_order: 3
 ## Serpent Publications
 
 [Source](http://serpentpublications.org/)
+
+
+[ABC]: https://abcnotation.com
 

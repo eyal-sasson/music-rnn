@@ -4,6 +4,10 @@ layout: default
 nav_order: 2
 ---
 
+# Try the model
+
+---
+
 Enter seed (leave blank for random):
 <input type="text" class="input" id="seed" placeholder="###"
     pattern="\d{1,3}" oninput="setCustomValidity('')">
@@ -15,7 +19,7 @@ Enter seed (leave blank for random):
 - [<i class="fa-solid fa-star"></i> The Nottingham Music Database](javascript:getMusic("abcsourceforge")){: .btn .btn-blue} \
     [American and British folk tunes](data#the-nottingham-music-database). Recommended, gives best results.
 
-- [Israeli dances](javascript:getMusic("isra")){: .btn} \
+- [Israeli Dances](javascript:getMusic("isra")){: .btn} \
     [Israeli folk and dance music](data#israeli-dances). Results may not be original.
 
 - [FolkWiki](javascript:getMusic("folkwiki")){: .btn} \
