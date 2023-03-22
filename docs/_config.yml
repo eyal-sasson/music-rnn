@@ -16,3 +16,5 @@ remote-theme: just-the-docs/just-the-docs
 
 color_scheme: light
 
+plugins:
+  - jekyll-target-blank
