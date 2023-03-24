@@ -26,9 +26,16 @@ A collection of Israeli dance tunes, contributed by Seymour Shlien. All tunes ca
 
 ## [FolkWiki](http://www.folkwiki.se/)
 
+FolkWiki is a wiki website with Swedish and Nordic folk music. It is community maintained and includes a large amount of songs (5000+), although the model was trained on a portion of them.
+The music is also available on the [ABC Notation website](https://abcnotation.com/searchTunes?q=site:www.folkwiki.se).
+
 ## [The Old Music Project](http://www.oldmusicproject.com/oneils1.html)
 
-## [Le Grand Session de Manchester](http://www.lesession.co.uk/music/)
+The Old Music Project is a transcription of the book "O'Neill's Music of Ireland". Available for listen on the [ABC Notation website](https://abcnotation..com/searchTunes?q=site:www.oldmusicproject.com).
+
+## [The Lesession Collections](http://www.lesession.co.uk/music/)
+
+The Lessesion Collections includes a few traditional Irish and French music collections, such as [Le Grand Session de Manchester](http://www.lesession.co.uk/music/lgsdmweb.abc) and [The woodenflute mailing list](http://www.lesession.co.uk/music/woodenflute.abc). The collections can be downloaded one by one from the Lesession website, and are also available on the [ABC Notation Website](https://abcnotation.com/searchTunes?q=site:www.Lesession.co.uk/music).
 
 ## [French Trad](http://www.tradfrance.com/)
 

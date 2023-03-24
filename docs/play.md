@@ -28,8 +28,8 @@ Enter seed (leave blank for random):
 - [The Old Music Project](javascript:getMusic("oldmusic")){: .btn} \
     [Irish music](data#the-old-music-project).
 
-- [Le Grand Session de Manchester](javascript:getMusic("lesession")){: .btn} \
-    [Mainly traditional Irish and French tunes](data#le-grand-session-de-manchester).
+- [The Lesession Collections](javascript:getMusic("lesession")){: .btn} \
+    [Mainly traditional Irish and French tunes](data#the-lesession-collections).
 
 - [French Trad](javascript:getMusic("tradfrance")){: .btn} \
     [Traditional French music](data#french-trad). Doesn't work well with large seeds; try manually setting a seed under 100.

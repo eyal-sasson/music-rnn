@@ -24,7 +24,7 @@ async function getMusic(dataset) {
     if (!seed)
         return;
     running = true;
-    const url = "https://gen.sasson.ml";
+    const url = "https://gen.musicrnn.eu.org";
     console.log(`fetching music for ${dataset}...`);
     const pre = document.getElementById("notes"),
         caret = document.getElementById("caret")
@@ -42,11 +42,11 @@ async function getMusic(dataset) {
         for (let i = 0; i < 50; i++) {
             let music = await fetchMusic(url, dataset, text, 20);
             let stop = false;
-            music = music.replace(text, "");
             if (music.includes(NEW_SONG)) {
                 music = music.split(NEW_SONG)[0];
                 stop = true;
             }
+            music = music.replace(text, "");
             toWrite.push(...music.split(""));
             console.log(toWrite.join(""));
             text += music;
@@ -95,6 +95,7 @@ async function typeWriter(toWrite, e) {
         await new Promise(resolve => setTimeout(resolve, 50));
     }
     typing = false;
+    await new Promise(resolve => setTimeout(resolve, 100));
     if (running) {
         caret.classList.add("animate");
     } else {
