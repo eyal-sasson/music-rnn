@@ -48,7 +48,3 @@ Enter seed (leave blank for random):
 
 [<i class="fa-solid fa-arrows-rotate"></i> Convert](javascript:convert()){: #convert .btn .btn-primary .hidden}
 <div id="download" class="btn btn-green hidden"><i class="fa-solid fa-download"></i> Download</div>
-
-<script src="https://cdn.jsdelivr.net/npm/abcjs@6.1.9/dist/abcjs-basic-min.js"></script>
-<script src="{{ '/assets/js/util.js' | relative_url }}"></script>
-
