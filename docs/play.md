@@ -35,7 +35,7 @@ Enter seed (leave blank for random):
     [Traditional French music](data#french-trad). Doesn't work well with large seeds; try manually setting a seed under 100.
 
 - [Serpent Publications](javascript:getMusic("serpent")){: .btn} \
-    [Renaissance-like music](data#serpent-publications). Same as above, better results with smaller seeds.
+    [Renaissance music](data#serpent-publications). Same as above, better results with smaller seeds.
 
 ---
 

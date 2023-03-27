@@ -39,8 +39,12 @@ The Lessesion Collections includes a few traditional Irish and French music coll
 
 ## [French Trad](http://www.tradfrance.com/)
 
+French Trad is a website with a collection of traditional French tunes, such as Christmas songs and festival music. The songs aren't well organized on the website itself, but are available on the [ABC Notation website](https://abcnotation.com/searchTunes?q=site:www.tradfrance.com).
+
 ## [Serpent Publications](http://serpentpublications.org/)
 
+Serpent Publications is a collection of mostly Renaissance music, but also includes more modern music, mainly French. The songs can be downloaded one by one in different formats, including ABC, from the Serpent Publications website.
+The music is available on the [ABC Notation website](https://abcnotation.com/searchTunes?q=site:serpentpublications.org).
 
 [ABC]: https://abcnotation.com
 [ABC Notation]: https://en.wikipedia.org/wiki/ABC_notation
