@@ -9,8 +9,8 @@ Using a simple RNN [model](model) written in Python using [Keras], and trained o
 
 If you want to experiment with the trained model on different datasets, check out [Play](play).
 
+For further information on how the project works, check out our [GitHub Repository](https://github.com/eyal-sasson/music-rnn).
 
 [RNN]: https://en.wikipedia.org/wiki/Recurrent_neural_network
 [ABC notation]: https://en.wikipedia.org/wiki/ABC_notation
 [Keras]: https://keras.io/
-

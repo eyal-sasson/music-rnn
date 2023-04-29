@@ -13,6 +13,8 @@ All data is in the [ABC Notation] format. ABC notation is a widely-used music no
 The model was trained on multiple datasets. All datasets, except [Israeli Dances](#israeli-dances), were scraped from the [ABC Notation website][ABC].
 The notebook showing the scraping process can be found [here](https://github.com/eyal-sasson/music-rnn/blob/main/Data_Scraping.ipynb).
 
+---
+
 ## [The Nottingham Music Database](https://abc.sourceforge.net/NMD/)
 
 The Nottingham Database is a collection of over 1200 British and American folk tunes.
