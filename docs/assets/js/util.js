@@ -29,7 +29,7 @@ async function getMusic(dataset) {
     const pre = document.getElementById("notes"),
         caret = document.getElementById("caret")
         sheet = document.getElementById("sheet");
-    pre.innerHTML = "Loading...";
+    pre.innerHTML = LOADING;
     document.getElementById("convert").classList.add("hidden");
     document.getElementById("download").classList.add("hidden");
     caret.classList.remove("hidden");
@@ -46,7 +46,7 @@ async function getMusic(dataset) {
                 music = music.split(NEW_SONG)[0];
                 stop = true;
             }
-            music = music.replace(text, "");
+            music = music.slice(text.length);
             toWrite.push(...music.split(""));
             console.log(toWrite.join(""));
             text += music;
